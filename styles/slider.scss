@@ -1,0 +1,36 @@
+@import './mixin.scss';
+.swiper {
+	padding-right: 7vw !important;
+	width: 100vw;
+
+	@include mq(sm) {
+		padding-right: 10vw !important;
+	}
+
+	@include mq(md) {
+		padding-right: 2vw !important;
+	}
+
+	@include mq(lg) {
+		padding-right: 12vw !important;
+	}
+
+	@include mq(xl) {
+		max-width: 144rem;
+		padding-right: 15rem !important;
+		margin-left: 0 !important;
+	}
+
+	& .swiper-slide {
+		width: clamp(24rem, 63vw, 47rem);
+
+		&:last-child {
+			margin-right: 0 !important;
+		}
+
+		@include mq(md) {
+			height: 23rem;
+			margin-right: 4rem !important;
+		}
+	}
+}

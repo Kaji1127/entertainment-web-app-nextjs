@@ -1,0 +1,103 @@
+@import '../../styles/mixin.scss';
+
+.product {
+	& .image {
+		position: relative;
+		cursor: pointer;
+		border-radius: 0.8rem;
+		overflow: hidden;
+		margin-bottom: 0.8rem;
+
+		&::after {
+			content: '';
+			position: absolute;
+			inset: 0;
+			background-color: transparent;
+		}
+
+		& .bookmark {
+			background-color: var(--pale-semi-dark-blue);
+			width: 3.2rem;
+			height: 3.2rem;
+			border-radius: 50%;
+			display: grid;
+			place-items: center;
+			position: absolute;
+			top: 0.8rem;
+			right: 0.8rem;
+			z-index: 10;
+
+			@include mq(md) {
+				top: 1.6rem;
+				right: 1.6rem;
+			}
+
+			&:hover {
+				background-color: var(--white);
+
+				& svg > path {
+					stroke: var(--semi-dark-blue);
+					stroke-width: 1.5px;
+				}
+			}
+		}
+
+		& .play {
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%, -50%);
+			z-index: 10;
+			visibility: hidden;
+			display: flex;
+			color: var(--white);
+			font-size: 1.8rem;
+			gap: 1.9rem;
+			align-items: center;
+			background-color: var(--hover-white);
+			padding: 0.9rem;
+			width: 11.7rem;
+			border-radius: 2.85rem;
+		}
+
+		&:hover {
+			&::after {
+				background-color: var(--hover-black);
+			}
+
+			& .play {
+				visibility: visible;
+			}
+		}
+	}
+
+	&.trending {
+		position: relative;
+		border-radius: 0.8rem;
+		overflow: hidden;
+		@include mq(md) {
+			height: 23rem;
+		}
+
+		& .image {
+			margin-bottom: 0;
+
+			& .bookmark {
+				@include mq(md) {
+					top: 1.6rem;
+					right: 2.4rem;
+				}
+			}
+		}
+
+		&:hover {
+			&::after {
+				background-color: var(--hover-black);
+			}
+
+			& .play {
+				visibility: visible;
+			}
+		}
+	}
+}
